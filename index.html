@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViaMedia | Post Prog & Art Rock</title>
+    <meta name="description" content="Official website of ViaMedia, a British-Norwegian post prog / art rock band. New album 'Bridge of Sighs' out now.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --color-bg: #0f172a; /* Slate 900 */
+            --color-accent: #3f6212; /* Lime 800 - Acres Green vibe */
+            --color-gold: #c0a062;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--color-bg);
+            color: #e2e8f0;
+        }
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Cinzel', serif;
+        }
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.3), rgba(15, 23, 42, 1));
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .lyrics-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .lyrics-content.active {
+            max-height: 1000px; /* Arbitrary large height */
+            transition: max-height 0.5s ease-in;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="#" class="font-heading text-2xl tracking-widest text-white hover:text-yellow-600 transition-colors">
+                        VIAMEDIA
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium tracking-wide">HOME</a>
+                        <a href="#about" class="hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium tracking-wide">ABOUT</a>
+                        <a href="#music" class="hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium tracking-wide">MUSIC</a>
+                        <a href="#lyrics" class="hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium tracking-wide">LYRICS</a>
+                        <a href="#contact" class="hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium tracking-wide">CONTACT</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-slate-900 border-b border-gray-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">HOME</a>
+                <a href="#about" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">ABOUT</a>
+                <a href="#music" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">MUSIC</a>
+                <a href="#lyrics" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">LYRICS</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Abstract Background Placeholder (Replace with band photo or album art background) -->
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-30"></div>
+        <div class="hero-overlay absolute inset-0"></div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <p class="text-yellow-600 tracking-[0.3em] uppercase text-sm md:text-base mb-4 animate-fade-in-up">The New Album</p>
+            <h1 class="text-5xl md:text-8xl font-heading font-bold text-white mb-6 tracking-tight shadow-lg">
+                BRIDGE OF SIGHS
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                Adventurous, creative, and unorthodox. A journey through post-prog and art rock.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://orcd.co/lnvr57p" target="_blank" class="px-8 py-4 bg-yellow-700 hover:bg-yellow-600 text-white font-bold rounded-sm transition-all duration-300 tracking-wider flex items-center justify-center gap-2">
+                    <i data-lucide="music" class="w-4 h-4"></i> STREAM NOW
+                </a>
+                <a href="https://viamedia.bandcamp.com/album/bridge-of-sighs" target="_blank" class="px-8 py-4 border border-white hover:bg-white hover:text-slate-900 text-white font-bold rounded-sm transition-all duration-300 tracking-wider flex items-center justify-center gap-2">
+                    <i data-lucide="disc" class="w-4 h-4"></i> BUY ON BANDCAMP
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-slate-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-6">
+                    <h2 class="text-4xl text-white font-heading mb-6 border-l-4 border-yellow-600 pl-4">The Story</h2>
+                    <p class="text-gray-400 leading-relaxed">
+                        ViaMedia is a British-Norwegian band that writes, records, and performs music that is adventurous, creative, and seeks to avoid any form of orthodoxy. We are a post-prog / art rock band, deeply inspired by contemporary classical and cinematic music.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        The band is a reboot of a popular Bergen-based band from the late 80s and early 90s, which was heavily influenced by acts like David Sylvian, Talk Talk, and Ultravox. Today's ViaMedia is far more adventurous and eclectic.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        Founders <strong>Karl Yngvar Dale</strong> (Molde, Norway) and <strong>Tore Dimmestøl</strong> (Henley-On-Thames, UK) have collaborated remotely using Logic Pro, combined with recording sessions at John Mitchell's Outhouse Studios.
+                    </p>
+                    
+                    <div class="pt-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div class="glass-panel p-6 rounded-lg">
+                            <h3 class="text-yellow-600 font-heading text-xl mb-2">Karl Yngvar Dale</h3>
+                            <p class="text-sm text-gray-400">Vocals, bass, double bass, keyboards, acoustic guitar.</p>
+                        </div>
+                        <div class="glass-panel p-6 rounded-lg">
+                            <h3 class="text-yellow-600 font-heading text-xl mb-2">Tore Dimmestøl</h3>
+                            <p class="text-sm text-gray-400">Vocals, electric & acoustic guitars, keyboards, FX.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <!-- Band Photo -->
+                    <div class="aspect-[3/4] rounded-lg overflow-hidden bg-slate-800 relative group">
+                        <img src="/ViaMedia/images/band-photo.jpg" alt="ViaMedia Band Members" class="object-cover w-full h-full opacity-80 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Collaborators -->
+            <div class="mt-20 border-t border-gray-800 pt-10">
+                <h3 class="text-2xl font-heading text-center mb-10 text-gray-300">Featured Collaborators</h3>
+                <div class="flex flex-wrap justify-center gap-8 text-center text-gray-400 text-sm">
+                    <div class="max-w-xs">
+                        <strong class="block text-white mb-1">John Mitchell</strong>
+                        (Asia, It Bites, Frost*)<br>Production, Guitar
+                    </div>
+                    <div class="max-w-xs">
+                        <strong class="block text-white mb-1">Craig Blundell</strong>
+                        (Steve Hackett, Steven Wilson)<br>Drums
+                    </div>
+                    <div class="max-w-xs">
+                        <strong class="block text-white mb-1">Jeff Oster</strong>
+                        (Grammy Nominee)<br>Flugelhorn
+                    </div>
+                     <div class="max-w-xs">
+                        <strong class="block text-white mb-1">Jacob Holm-Lupo</strong>
+                        (White Willow)<br>Production, Synth
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discography Section -->
+    <section id="music" class="py-24 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl text-white font-heading mb-16 text-center">Discography</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Album 1: Bridge of Sighs -->
+                <div class="glass-panel p-8 rounded-xl hover:bg-slate-800 transition-colors duration-300 group">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="w-full md:w-48 flex-shrink-0">
+                            <div class="aspect-square bg-slate-900 rounded-md flex items-center justify-center border border-gray-700 shadow-xl overflow-hidden relative">
+                                <!-- Bridge of Sighs Album Cover -->
+                                <img src="/ViaMedia/images/bridge-of-sighs-cover.jpg" alt="Bridge of Sighs Album Cover" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-1">Bridge of Sighs</h3>
+                                    <p class="text-yellow-600 text-sm mb-4">Released April 2024</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-400 text-sm mb-6 line-clamp-3">
+                                The culmination of two years of work. A rich tapestry of sound featuring John Mitchell, Craig Blundell, and more. Elegant, atmospheric, and uniquely ViaMedia.
+                            </p>
+                            <div class="flex gap-3">
+                                <a href="https://viamedia.bandcamp.com/album/bridge-of-sighs" target="_blank" class="flex-1 bg-slate-700 hover:bg-slate-600 text-white py-2 rounded text-center text-sm transition-colors">Bandcamp</a>
+                                <a href="https://orcd.co/lnvr57p" target="_blank" class="flex-1 border border-gray-600 hover:border-white text-white py-2 rounded text-center text-sm transition-colors">Stream</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EP: Acres Green -->
+                <div class="glass-panel p-8 rounded-xl hover:bg-slate-800 transition-colors duration-300 group">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="w-full md:w-48 flex-shrink-0">
+                            <div class="aspect-square bg-slate-900 rounded-md flex items-center justify-center border border-gray-700 shadow-xl overflow-hidden relative">
+                                <!-- Acres Green EP Cover -->
+                                <img src="/ViaMedia/images/acres-green-cover.jpg" alt="Acres Green EP Cover" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white mb-1">Acres Green EP</h3>
+                                <p class="text-green-600 text-sm mb-4">Released March 2024</p>
+                            </div>
+                            <p class="text-gray-400 text-sm mb-6 line-clamp-3">
+                                The prelude to the album. A collection featuring the title track "Acres Green" and more, showcasing the band's lighter, yet poignant side.
+                            </p>
+                            <div class="flex gap-3">
+                                <a href="https://viamedia.bandcamp.com/album/acres-green-ep" target="_blank" class="flex-1 bg-slate-700 hover:bg-slate-600 text-white py-2 rounded text-center text-sm transition-colors">Bandcamp</a>
+                                <a href="https://orcd.co/pljqzey" target="_blank" class="flex-1 border border-gray-600 hover:border-white text-white py-2 rounded text-center text-sm transition-colors">Stream</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lyrics Section -->
+    <section id="lyrics" class="py-24 bg-slate-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl text-white font-heading mb-12 text-center">Lyrics</h2>
+            <div class="space-y-4" id="lyrics-container">
+                <!-- Lyrics items will be populated by JS to keep HTML clean, or listed below -->
+                
+                <!-- Conspiracy Kid -->
+                <div class="border border-gray-800 rounded-lg overflow-hidden">
+                    <button class="w-full px-6 py-4 bg-slate-800 hover:bg-slate-700 flex justify-between items-center transition-colors focus:outline-none" onclick="toggleLyrics(this)">
+                        <span class="text-lg font-medium text-white">Conspiracy Kid</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="lyrics-content bg-slate-900">
+                        <div class="px-6 py-8 text-gray-300 font-light leading-relaxed whitespace-pre-line text-center">
+                            I was a nerdy, lonely kid
+                            online games were all I did
+                            But in my private fantasy
+                            I hung out with Mialee and
+                            
+                            Lizard people from outer space
+                            Here to enslave the human race
+                            Bloodsucking critters roaming the streets
+                            (The) dungeons and dragons of the power elites
+                            
+                            Now I'm an influential youth
+                            With red pilled friends who know the truth
+                            Our bots are now inside your mind
+                            We show you how to see the signs...
+                            
+                            (See album for full lyrics)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Acres Green -->
+                <div class="border border-gray-800 rounded-lg overflow-hidden">
+                    <button class="w-full px-6 py-4 bg-slate-800 hover:bg-slate-700 flex justify-between items-center transition-colors focus:outline-none" onclick="toggleLyrics(this)">
+                        <span class="text-lg font-medium text-white">Acres Green</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="lyrics-content bg-slate-900">
+                        <div class="px-6 py-8 text-gray-300 font-light leading-relaxed whitespace-pre-line text-center">
+                            Climb up to the mountain top
+                            And look out to the sea
+                            Take all your clothes off
+                            And swim with me
+                            
+                            Running wild in acres green
+                            With flowers in your hair
+                            You can do what you want
+                            There's no one here
+                            Just us, my dear
+                            
+                            What are we living for
+                            If not for today
+                            All things worth fighting for
+                            Don't give it all away...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aphrodite -->
+                <div class="border border-gray-800 rounded-lg overflow-hidden">
+                    <button class="w-full px-6 py-4 bg-slate-800 hover:bg-slate-700 flex justify-between items-center transition-colors focus:outline-none" onclick="toggleLyrics(this)">
+                        <span class="text-lg font-medium text-white">Aphrodite</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="lyrics-content bg-slate-900">
+                        <div class="px-6 py-8 text-gray-300 font-light leading-relaxed whitespace-pre-line text-center">
+                            Aphrodite dances, suspended in air
+                            Silently brushes the dust from her hair
+                            I make our beds from moss, grass and leaves
+                            Quietly slumber and drift with the breeze
+                            
+                            "Beware of what's true", the forest elves call out
+                            We drink the forest dew, hide from the fall out
+                            
+                            Aphrodite's mouth overflowing with words
+                            Celofane syllable heavenly herds...
+                        </div>
+                    </div>
+                </div>
+                
+                 <!-- Subtle -->
+                <div class="border border-gray-800 rounded-lg overflow-hidden">
+                    <button class="w-full px-6 py-4 bg-slate-800 hover:bg-slate-700 flex justify-between items-center transition-colors focus:outline-none" onclick="toggleLyrics(this)">
+                        <span class="text-lg font-medium text-white">Subtle</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="lyrics-content bg-slate-900">
+                        <div class="px-6 py-8 text-gray-300 font-light leading-relaxed whitespace-pre-line text-center">
+                            Where are they heading?
+                            Ships in the distance
+                            Here for an instance
+                            But always far away
+                            A heart of stone for
+                            every two eyes raining
+                            No one is complaining
+                            Not a soul knows why
+                            
+                            Midnight somewhere
+                            I'll be sleepwalking
+                            I scan the planet for you
+                            Or anything new...
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-black py-16 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl text-white font-heading mb-8">Connect With Us</h2>
+            
+            <div class="flex justify-center space-x-8 mb-12">
+                <a href="https://www.facebook.com/ViaMediaBand" target="_blank" class="text-gray-400 hover:text-blue-500 transition-colors">
+                    <i data-lucide="facebook" class="w-8 h-8"></i>
+                    <span class="sr-only">Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/viamediaband/" target="_blank" class="text-gray-400 hover:text-pink-600 transition-colors">
+                    <i data-lucide="instagram" class="w-8 h-8"></i>
+                    <span class="sr-only">Instagram</span>
+                </a>
+                <a href="https://viamedia.bandcamp.com/" target="_blank" class="text-gray-400 hover:text-teal-400 transition-colors">
+                    <i data-lucide="disc" class="w-8 h-8"></i>
+                    <span class="sr-only">Bandcamp</span>
+                </a>
+                <a href="mailto:toredimmestol@gmail.com" class="text-gray-400 hover:text-white transition-colors">
+                    <i data-lucide="mail" class="w-8 h-8"></i>
+                    <span class="sr-only">Email</span>
+                </a>
+            </div>
+            
+            <div class="text-gray-500 text-sm">
+                <p>&copy; 2024 ViaMedia. All rights reserved.</p>
+                <p class="mt-2">Management & Booking: Tore Dimmestøl</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-slate-900/95', 'backdrop-blur-sm', 'shadow-md');
+            } else {
+                navbar.classList.remove('bg-slate-900/95', 'backdrop-blur-sm', 'shadow-md');
+            }
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Lyrics Accordion Logic
+        function toggleLyrics(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            const isActive = content.classList.contains('active');
+
+            // Close all other lyrics
+            document.querySelectorAll('.lyrics-content').forEach(el => {
+                el.classList.remove('active');
+                el.style.maxHeight = null;
+                // Reset icons
+                const btn = el.previousElementSibling;
+                const ico = btn.querySelector('i');
+                ico.style.transform = 'rotate(0deg)';
+            });
+
+            if (!isActive) {
+                content.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+</html>
